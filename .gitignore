@@ -3,7 +3,6 @@
 # metadata
 *.metadata/
 *.recommenders/
-*.gwt-unitCache/
 
 # Package Files #
 *.jar
