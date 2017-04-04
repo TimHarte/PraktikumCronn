@@ -1,6 +1,5 @@
 package com.hellogwt.client;
 
-import com.hellogwt.shared.FieldVerifier;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Style.Unit;
@@ -13,11 +12,15 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.DialogBox;
 import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.HorizontalPanel;
+import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
+import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.TabLayoutPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
+import com.hellogwt.shared.FieldVerifier;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
@@ -40,27 +43,80 @@ public class HelloGwt implements EntryPoint {
 	 */
 	public void onModuleLoad() {
 		
-		TabLayoutPanel tabPanel = new TabLayoutPanel(1, Unit.EM);
+		TabLayoutPanel tabPanel = new TabLayoutPanel(5, Unit.EM);
 		tabPanel.getElement().getStyle().setMarginBottom(250, Unit.PX);
 		
 		// Add a tab
-	    HTML moreInfo0 = new HTML("test");
+	    HTML moreInfo0 = new HTML("<h1>Als erstes wurde ich allen vorgestellt und hab die ersten organisatorischen Informationen entgegen genommen. Also habe ich meinen Laptop bekommen zusammen mit den ersten Einweisungen. Ich habe ersteinmal den Mitarbeitern ein wenig ueber die Schulter geguckt. Im weiteren Verlauf des Nachmittags hab ich dann ein kleines Projekt in Java mit GWT und Eclipse programmiert.</h1>");
+	    moreInfo0.setStylePrimaryName("body-text");
 	    tabPanel.add(moreInfo0, "Montag");
-	    HTML moreInfo1 = new HTML("test1");
-	    tabPanel.add(moreInfo1, "Dienstag");
+	    
+	    
+	    
+	    HTML dayDescription = new HTML("<h1>Am Dienstag morgen konnte ich dann an meinem, vom vorherigen Tag schon angefangenes Project, weiterarbeiten. Um Punkt 10 Uhr war ein CANDy Meeting, welches bi Mittags ging. Nach dem Project gab es wie jeden Tag essen in der Kantine der Telekom. Nach dem Essen hab ich dann mit Hilfe des anwesenden Fachpersonal, weiter an meinem Project gearbeitet.</h1>");
+	    
+	    // verticalPanel "replaces" RootPanel
+	    VerticalPanel verticalPanel = new VerticalPanel();
+	    HorizontalPanel horizontalPanelImages = new HorizontalPanel();
+	    HorizontalPanel horizontalPanelText = new HorizontalPanel();
+	    
+	    // simplePanel holds image layer
+	    SimplePanel githubImageContainer = new SimplePanel();
+	    Image gitImage = new Image("https://about.gitlab.com/images/press/logo/wm_no_bg.svg");
+	    gitImage.setHeight("50px");
+	    gitImage.setWidth("100px");
+	    githubImageContainer.setWidget(gitImage);
+	    
+	    // create text to be added to Panel
+	    HTML githubDescription = new HTML("GitHub Discribtion ");
+	    githubDescription.addStyleName("image-text");
+
+	    // build vertical Panel together
+	    verticalPanel.add(dayDescription);
+	    horizontalPanelImages.add(githubImageContainer);
+	   
+	    
+	    verticalPanel.add(horizontalPanelImages);
+	    tabPanel.add(verticalPanel, "Dienstag");
+	    
+	    horizontalPanelText.add(githubDescription);
+	    
+	    //GWT
+	    
+	    SimplePanel gwtImageContainer = new SimplePanel();
+	    Image gwtImage = new Image("http://www.codetab.org/wp-content/uploads/title_logo.png");
+	    gwtImage.setHeight("50px");
+	    gwtImage.setWidth("100px");
+	    gwtImageContainer.setWidget(gwtImage);
+	    
+	    HTML gwtDescription = new HTML("GWT Discribtion");
+	    gwtDescription.addStyleName("image-text");
+	    
+	    horizontalPanelImages.add(gwtImageContainer);
+	    horizontalPanelText.add(gwtDescription);
+	    
+	    verticalPanel.add(horizontalPanelText);
+	    
+	    
+	    
 	    HTML moreInfo2 = new HTML("test2");
 	    tabPanel.add(moreInfo2, "Mittwoch");
+	    
+	    
 	    HTML moreInfo3 = new HTML("test3");
 	    tabPanel.add(moreInfo3, "Donnerstag");
+	    
+	    
 	    HTML moreInfo4 = new HTML("test4");
 	    tabPanel.add(moreInfo4, "Freitag");	    
 	    
 	    
 		tabPanel.setWidth("400px");
-		tabPanel.setHeight("800px");
+		tabPanel.setHeight("450px");
 	    RootPanel.get("tabPanelContainer").add(tabPanel);
-	    
+
 	    defaultSetup();
+	    
 	    
 	}
 
