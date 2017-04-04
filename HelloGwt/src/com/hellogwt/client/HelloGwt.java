@@ -3,6 +3,7 @@ package com.hellogwt.client;
 import com.hellogwt.shared.FieldVerifier;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.KeyCodes;
@@ -14,6 +15,7 @@ import com.google.gwt.user.client.ui.DialogBox;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
+import com.google.gwt.user.client.ui.TabLayoutPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
@@ -37,6 +39,32 @@ public class HelloGwt implements EntryPoint {
 	 * This is the entry point method.
 	 */
 	public void onModuleLoad() {
+		
+		TabLayoutPanel tabPanel = new TabLayoutPanel(1, Unit.EM);
+		tabPanel.getElement().getStyle().setMarginBottom(250, Unit.PX);
+		
+		// Add a tab
+	    HTML moreInfo0 = new HTML("test");
+	    tabPanel.add(moreInfo0, "Montag");
+	    HTML moreInfo1 = new HTML("test1");
+	    tabPanel.add(moreInfo1, "Dienstag");
+	    HTML moreInfo2 = new HTML("test2");
+	    tabPanel.add(moreInfo2, "Mittwoch");
+	    HTML moreInfo3 = new HTML("test3");
+	    tabPanel.add(moreInfo3, "Donnerstag");
+	    HTML moreInfo4 = new HTML("test4");
+	    tabPanel.add(moreInfo4, "Freitag");	    
+	    
+	    
+		tabPanel.setWidth("400px");
+		tabPanel.setHeight("800px");
+	    RootPanel.get("tabPanelContainer").add(tabPanel);
+	    
+	    defaultSetup();
+	    
+	}
+
+	private void defaultSetup() {
 		final Button sendButton = new Button("Send");
 		final TextBox nameField = new TextBox();
 		nameField.setText("Name");
