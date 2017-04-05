@@ -51,10 +51,20 @@ public class HelloGwt implements EntryPoint {
 	    moreInfo0.setStylePrimaryName("body-text");
 	    tabPanel.add(moreInfo0, "Montag");
 	    
-	    
-	    
 	    HTML dayDescription = new HTML("<h1>Am Dienstag morgen konnte ich dann an meinem, vom vorherigen Tag schon angefangenes Project, weiterarbeiten. Um Punkt 10 Uhr war ein CANDy Meeting, welches bi Mittags ging. Nach dem Project gab es wie jeden Tag essen in der Kantine der Telekom. Nach dem Essen hab ich dann mit Hilfe des anwesenden Fachpersonal, weiter an meinem Project gearbeitet.</h1>");
 	    
+	    HTML imagePlaceholder = new HTML("Placeholder");
+	    imagePlaceholder.addStyleName("text-placeholder");
+	    
+	    HTML textPlaceholder = new HTML("Placeholder");
+	    textPlaceholder.addStyleName("text-placeholder");
+	    
+	    HTML githubDescription = new HTML("GitHub Discribtion ");
+	    githubDescription.addStyleName("image-text");
+	    
+	    HTML gwtDescription = new HTML("GWT Discribtion");
+	    gwtDescription.addStyleName("image-text");
+	       
 	    // verticalPanel "replaces" RootPanel
 	    VerticalPanel verticalPanel = new VerticalPanel();
 	    HorizontalPanel horizontalPanelImages = new HorizontalPanel();
@@ -66,51 +76,45 @@ public class HelloGwt implements EntryPoint {
 	    gitImage.setHeight("50px");
 	    gitImage.setWidth("100px");
 	    githubImageContainer.setWidget(gitImage);
-	    
-	    // create text to be added to Panel
-	    HTML githubDescription = new HTML("GitHub Discribtion ");
-	    githubDescription.addStyleName("image-text");
 
 	    // build vertical Panel together
-	    verticalPanel.add(dayDescription);
-	    horizontalPanelImages.add(githubImageContainer);
-	   
 	    
-	    verticalPanel.add(horizontalPanelImages);
-	    tabPanel.add(verticalPanel, "Dienstag");
-	    
-	    horizontalPanelText.add(githubDescription);
-	    
-	    //GWT
-	    
+	    // simplePanel holds image layer
 	    SimplePanel gwtImageContainer = new SimplePanel();
 	    Image gwtImage = new Image("http://www.codetab.org/wp-content/uploads/title_logo.png");
 	    gwtImage.setHeight("50px");
 	    gwtImage.setWidth("100px");
 	    gwtImageContainer.setWidget(gwtImage);
 	    
-	    HTML gwtDescription = new HTML("GWT Discribtion");
-	    gwtDescription.addStyleName("image-text");
+	    // build vertical Panel together
+	    verticalPanel.add(dayDescription);
+	    tabPanel.add(verticalPanel, "Dienstag");
 	    
+	    verticalPanel.add(horizontalPanelImages);
+	    
+	    horizontalPanelImages.add(githubImageContainer);
+	    horizontalPanelImages.add(imagePlaceholder);
 	    horizontalPanelImages.add(gwtImageContainer);
-	    horizontalPanelText.add(gwtDescription);
 	    
 	    verticalPanel.add(horizontalPanelText);
 	    
+	    horizontalPanelText.add(githubDescription);
+	    horizontalPanelText.add(textPlaceholder);
+	    horizontalPanelText.add(gwtDescription);
 	    
-	    
+	    //add a new tab
 	    HTML moreInfo2 = new HTML("test2");
 	    tabPanel.add(moreInfo2, "Mittwoch");
 	    
-	    
+	    //add a new tab
 	    HTML moreInfo3 = new HTML("test3");
 	    tabPanel.add(moreInfo3, "Donnerstag");
 	    
-	    
+	    //add a new tab
 	    HTML moreInfo4 = new HTML("test4");
 	    tabPanel.add(moreInfo4, "Freitag");	    
 	    
-	    
+	      
 		tabPanel.setWidth("400px");
 		tabPanel.setHeight("450px");
 	    RootPanel.get("tabPanelContainer").add(tabPanel);
