@@ -101,10 +101,10 @@ public class HelloGwt implements EntryPoint {
 	}
 
 	private void generateWednesdaytab(TabLayoutPanel tabPanel) {
-		HTML moreInfo2 = new HTML("Am Mittwoch morgen habe ich zu erst die neuen Schränke vom Lkw in den dritten Stock getragen. "
+		HTML moreInfo2 = new HTML("Am Mittwoch morgen habe ich zu erst die neuen Schraenke vom Lkw in den dritten Stock getragen. "
 				+ "Danach habe ich mich nach einer kleinen Kaffeepause wieder an mei gwt Projekt gemacht, welches ich dann um 16 Uhr"
 				+ "fast fertig hatte. Zwischenzeitlich waren wir, wie immer, in der Katine der Telekom essen. Nachdem das GWT Projekt"
-				+ " dann fertig war hab ich mich mit einem Analyst hingesetzt, welcher mir die Aufgaben eines Analayst ein wenig näher gebraacht hat.");
+				+ " dann fertig war hab ich mich mit einem Analyst hingesetzt, welcher mir die Aufgaben eines Analayst ein wenig naeher gebracht hat.");
 	    tabPanel.add(moreInfo2, "Mittwoch");
 	}
 
