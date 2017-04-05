@@ -47,18 +47,14 @@ public class HelloGwt implements EntryPoint {
 		TabLayoutPanel tabPanel = new TabLayoutPanel(5, Unit.EM);
 		tabPanel.getElement().getStyle().setMarginBottom(250, Unit.PX);
 		
-		// Add a tab
 	    generateMondaytab(tabPanel);
 	    
 	    generateTuesdaytab(tabPanel);
 	    
-	    //add a new tab
 	    generateWednesdaytab(tabPanel);
 	    
-	    //add a new tab
 	    generateThursdaytab(tabPanel);
 	    
-	    //add a new tab
 	    generateFridaytab(tabPanel);	    
 	    
 	      
