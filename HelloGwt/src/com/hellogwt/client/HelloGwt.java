@@ -58,7 +58,7 @@ public class HelloGwt implements EntryPoint {
 		showButton.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
 				String input = nameField.getText();
-				if("Tim Harte".equals(input)){
+				if("Tim Harte".equalsIgnoreCase(input)){
 					RootPanel.get("tabPanelContainer").removeStyleName("hidden");
 				}
 				else{
@@ -87,7 +87,7 @@ public class HelloGwt implements EntryPoint {
 
 	    //defaultSetup();
 		RootPanel.get("tabPanelContainer").add(tabPanel);
-
+	    
 	}
 
 	private void generateFridaytab(TabLayoutPanel tabPanel) {
@@ -101,12 +101,20 @@ public class HelloGwt implements EntryPoint {
 	}
 
 	private void generateWednesdaytab(TabLayoutPanel tabPanel) {
-		HTML moreInfo2 = new HTML("test2");
+		HTML moreInfo2 = new HTML("Am Mittwoch morgen habe ich zu erst die neuen Schränke vom Lkw in den dritten Stock getragen. "
+				+ "Danach habe ich mich nach einer kleinen Kaffeepause wieder an mei gwt Projekt gemacht, welches ich dann um 16 Uhr"
+				+ "fast fertig hatte. Zwischenzeitlich waren wir, wie immer, in der Katine der Telekom essen. Nachdem das GWT Projekt"
+				+ " dann fertig war hab ich mich mit einem Analyst hingesetzt, welcher mir die Aufgaben eines Analayst ein wenig näher gebraacht hat.");
 	    tabPanel.add(moreInfo2, "Mittwoch");
 	}
 
 	private void generateTuesdaytab(TabLayoutPanel tabPanel) {
-		HTML dayDescription = new HTML("Am Dienstag morgen konnte ich dann an meinem, vom vorherigen Tag schon angefangenes Project, weiterarbeiten. Um Punkt 10 Uhr war ein CANDy Meeting, welches bi Mittags ging. Nach dem Project gab es wie jeden Tag essen in der Kantine der Telekom. Nach dem Essen hab ich dann mit Hilfe des anwesenden Fachpersonal, weiter an meinem Project gearbeitet.");
+		HTML dayDescription = new HTML("Am Dienstag morgen konnte ich dann an meinem,"
+				+ " vom vorherigen Tag schon angefangenes Project, weiterarbeiten. "
+				+ "Um Punkt 10 Uhr war ein CANDy Meeting, welches bi Mittags ging. "
+				+ "Nach dem Project gab es wie jeden Tag essen in der Kantine der Telekom. "
+				+ "Nach dem Essen hab ich dann mit Hilfe des anwesenden Fachpersonal,"
+				+ " weiter an meinem Project gearbeitet.");
 		dayDescription.setStylePrimaryName("body-text");
 		
 	    HTML imagePlaceholder = new HTML("Placeholder");
