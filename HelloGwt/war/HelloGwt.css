@@ -14,6 +14,9 @@ body{
     height: 100%;
 }
 
+.hidden {
+	visibility: hidden;
+}
 .image-text {
 	display: inline;
 }

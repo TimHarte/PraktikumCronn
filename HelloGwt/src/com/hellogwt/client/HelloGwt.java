@@ -8,12 +8,14 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.KeyCodes;
 import com.google.gwt.event.dom.client.KeyUpEvent;
 import com.google.gwt.event.dom.client.KeyUpHandler;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.DialogBox;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Image;
+import com.google.gwt.user.client.ui.InsertPanel.ForIsWidget;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.SimplePanel;
@@ -37,6 +39,8 @@ public class HelloGwt implements EntryPoint {
 	 * Create a remote service proxy to talk to the server-side Greeting service.
 	 */
 	private final GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
+	
+	private TabLayoutPanel tabPanel;
 
 	/**
 	 * This is the entry point method.
@@ -44,8 +48,28 @@ public class HelloGwt implements EntryPoint {
 	public void onModuleLoad() {
 		
 		//create a panel
-		TabLayoutPanel tabPanel = new TabLayoutPanel(5, Unit.EM);
+		tabPanel = new TabLayoutPanel(5, Unit.EM);
 		tabPanel.getElement().getStyle().setMarginBottom(250, Unit.PX);
+		
+		final TextBox nameField = new TextBox();
+		nameField.setText("Name");
+		
+		final Button showButton = new Button("Show");
+		showButton.addClickHandler(new ClickHandler() {
+			public void onClick(ClickEvent event) {
+				String input = nameField.getText();
+				if("Tim Harte".equals(input)){
+					RootPanel.get("tabPanelContainer").removeStyleName("hidden");
+				}
+				else{
+					RootPanel.get("tabPanelContainer").addStyleName("hidden");
+					Window.alert("User not known");
+				}
+			}
+		});
+		
+		RootPanel.get("loginBoxContainer").add(nameField);
+		RootPanel.get("loginBoxContainer").add(showButton);	
 		
 	    generateMondaytab(tabPanel);
 	    
@@ -60,11 +84,10 @@ public class HelloGwt implements EntryPoint {
 	      
 		tabPanel.setWidth("400px");
 		tabPanel.setHeight("450px");
-	    RootPanel.get("tabPanelContainer").add(tabPanel);
 
-	    defaultSetup();
-	    
-	    
+	    //defaultSetup();
+		RootPanel.get("tabPanelContainer").add(tabPanel);
+
 	}
 
 	private void generateFridaytab(TabLayoutPanel tabPanel) {
@@ -135,12 +158,19 @@ public class HelloGwt implements EntryPoint {
 	}
 
 	private void generateMondaytab(TabLayoutPanel tabPanel) {
-		HTML moreInfo0 = new HTML("Als erstes wurde ich allen vorgestellt und hab die ersten organisatorischen Informationen entgegen genommen. Also habe ich meinen Laptop bekommen zusammen mit den ersten Einweisungen. Ich habe ersteinmal den Mitarbeitern ein wenig ueber die Schulter geguckt. Im weiteren Verlauf des Nachmittags hab ich dann ein kleines Projekt in Java mit GWT und Eclipse programmiert.");
-	    moreInfo0.setStylePrimaryName("body-text");
+		VerticalPanel moreInfo0 = new VerticalPanel();
+		HTML text = new HTML("Als erstes wurde ich allen vorgestellt und hab "
+				+ "die ersten organisatorischen Informationen entgegen genommen. Also habe "
+				+ "ich meinen Laptop bekommen zusammen mit den ersten Einweisungen. Ich habe "
+				+ "ersteinmal den Mitarbeitern ein wenig ueber die Schulter geguckt. Im weiteren "
+				+ "Verlauf des Nachmittags hab ich dann ein kleines Projekt in Java mit GWT und Eclipse programmiert.");
+		moreInfo0.add(text);
+		moreInfo0.setStylePrimaryName("body-text");
 	    tabPanel.add(moreInfo0, "Montag");
 	}
 
 	private void defaultSetup() {
+		final Button showButton = new Button("Show");
 		final Button sendButton = new Button("Send");
 		final TextBox nameField = new TextBox();
 		nameField.setText("Name");
@@ -153,6 +183,7 @@ public class HelloGwt implements EntryPoint {
 		// Use RootPanel.get() to get the entire body element
 		RootPanel.get("nameFieldContainer").add(nameField);
 		RootPanel.get("sendButtonContainer").add(sendButton);
+		RootPanel.get("sendButtonContainer").add(showButton);
 		RootPanel.get("errorLabelContainer").add(errorLabel);
 
 		// Focus the cursor on the name field when the app loads
@@ -184,6 +215,12 @@ public class HelloGwt implements EntryPoint {
 				dialogBox.hide();
 				sendButton.setEnabled(true);
 				sendButton.setFocus(true);
+			}
+		});
+		
+		showButton.addClickHandler(new ClickHandler() {
+			public void onClick(ClickEvent event) {
+				RootPanel.get("tabPanelContainer").add(tabPanel);
 			}
 		});
 
