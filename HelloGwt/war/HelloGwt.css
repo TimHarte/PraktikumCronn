@@ -1,16 +1,65 @@
 /** Add css rules here for your application. */
 
+
+html, body {
+    min-height: 100%;
+}
+
+body{
+    margin: 0px !important;
+    border: 0px !important;
+    padding: 0px !important;
+    background: #fff;
+    direction: ltr;
+    height: 100%;
+}
+
 .image-text {
 	display: inline;
 }
 
+.body-text {
+	font-size: 1em;
+ 	font-weight: bold;
+	color: black;
+  	margin: 40px 0px 70px;
+  	text-align: center;
+}
+
 /** Example rules used by the template application (remove for your app) */
 h1 {
-  font-size: 1em;
-  /**font-weight: bold;
-  color: #777777;*/
-  margin: 40px 0px 70px;
+  margin-top: 0;
+  font-size: 4em;
+  font-weight: bold;
+  color: green;
   text-align: center;
+  background-color: black;
+}
+
+h1 .link {
+	color: green;
+	font-size: 0.5em;
+	cursor: auto;
+	float: right;
+	margin-top: 35px;
+}
+
+a, a:visited {
+    color: green !important;
+    font-size: 1em;
+	cursor: auto;
+	text-align: right;
+}
+
+.banner {
+	width: 100%;
+	margin: 0;
+}
+
+p{
+	background-color: black;
+	color: white;
+	text-algin: center;
 }
 
 .text-placeholder {

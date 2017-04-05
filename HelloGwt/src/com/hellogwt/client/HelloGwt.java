@@ -83,8 +83,9 @@ public class HelloGwt implements EntryPoint {
 	}
 
 	private void generateTuesdaytab(TabLayoutPanel tabPanel) {
-		HTML dayDescription = new HTML("<h1>Am Dienstag morgen konnte ich dann an meinem, vom vorherigen Tag schon angefangenes Project, weiterarbeiten. Um Punkt 10 Uhr war ein CANDy Meeting, welches bi Mittags ging. Nach dem Project gab es wie jeden Tag essen in der Kantine der Telekom. Nach dem Essen hab ich dann mit Hilfe des anwesenden Fachpersonal, weiter an meinem Project gearbeitet.</h1>");
-	    
+		HTML dayDescription = new HTML("Am Dienstag morgen konnte ich dann an meinem, vom vorherigen Tag schon angefangenes Project, weiterarbeiten. Um Punkt 10 Uhr war ein CANDy Meeting, welches bi Mittags ging. Nach dem Project gab es wie jeden Tag essen in der Kantine der Telekom. Nach dem Essen hab ich dann mit Hilfe des anwesenden Fachpersonal, weiter an meinem Project gearbeitet.");
+		dayDescription.setStylePrimaryName("body-text");
+		
 	    HTML imagePlaceholder = new HTML("Placeholder");
 	    imagePlaceholder.addStyleName("text-placeholder");
 	    
@@ -134,7 +135,7 @@ public class HelloGwt implements EntryPoint {
 	}
 
 	private void generateMondaytab(TabLayoutPanel tabPanel) {
-		HTML moreInfo0 = new HTML("<h1>Als erstes wurde ich allen vorgestellt und hab die ersten organisatorischen Informationen entgegen genommen. Also habe ich meinen Laptop bekommen zusammen mit den ersten Einweisungen. Ich habe ersteinmal den Mitarbeitern ein wenig ueber die Schulter geguckt. Im weiteren Verlauf des Nachmittags hab ich dann ein kleines Projekt in Java mit GWT und Eclipse programmiert.</h1>");
+		HTML moreInfo0 = new HTML("Als erstes wurde ich allen vorgestellt und hab die ersten organisatorischen Informationen entgegen genommen. Also habe ich meinen Laptop bekommen zusammen mit den ersten Einweisungen. Ich habe ersteinmal den Mitarbeitern ein wenig ueber die Schulter geguckt. Im weiteren Verlauf des Nachmittags hab ich dann ein kleines Projekt in Java mit GWT und Eclipse programmiert.");
 	    moreInfo0.setStylePrimaryName("body-text");
 	    tabPanel.add(moreInfo0, "Montag");
 	}
