@@ -43,15 +43,51 @@ public class HelloGwt implements EntryPoint {
 	 */
 	public void onModuleLoad() {
 		
+		//create a panel
 		TabLayoutPanel tabPanel = new TabLayoutPanel(5, Unit.EM);
 		tabPanel.getElement().getStyle().setMarginBottom(250, Unit.PX);
 		
 		// Add a tab
-	    HTML moreInfo0 = new HTML("<h1>Als erstes wurde ich allen vorgestellt und hab die ersten organisatorischen Informationen entgegen genommen. Also habe ich meinen Laptop bekommen zusammen mit den ersten Einweisungen. Ich habe ersteinmal den Mitarbeitern ein wenig ueber die Schulter geguckt. Im weiteren Verlauf des Nachmittags hab ich dann ein kleines Projekt in Java mit GWT und Eclipse programmiert.</h1>");
-	    moreInfo0.setStylePrimaryName("body-text");
-	    tabPanel.add(moreInfo0, "Montag");
+	    generateMondaytab(tabPanel);
 	    
-	    HTML dayDescription = new HTML("<h1>Am Dienstag morgen konnte ich dann an meinem, vom vorherigen Tag schon angefangenes Project, weiterarbeiten. Um Punkt 10 Uhr war ein CANDy Meeting, welches bi Mittags ging. Nach dem Project gab es wie jeden Tag essen in der Kantine der Telekom. Nach dem Essen hab ich dann mit Hilfe des anwesenden Fachpersonal, weiter an meinem Project gearbeitet.</h1>");
+	    generateTuesdaytab(tabPanel);
+	    
+	    //add a new tab
+	    generateWednesdaytab(tabPanel);
+	    
+	    //add a new tab
+	    generateThursdaytab(tabPanel);
+	    
+	    //add a new tab
+	    generateFridaytab(tabPanel);	    
+	    
+	      
+		tabPanel.setWidth("400px");
+		tabPanel.setHeight("450px");
+	    RootPanel.get("tabPanelContainer").add(tabPanel);
+
+	    defaultSetup();
+	    
+	    
+	}
+
+	private void generateFridaytab(TabLayoutPanel tabPanel) {
+		HTML moreInfo4 = new HTML("test4");
+	    tabPanel.add(moreInfo4, "Freitag");
+	}
+
+	private void generateThursdaytab(TabLayoutPanel tabPanel) {
+		HTML moreInfo3 = new HTML("test3");
+	    tabPanel.add(moreInfo3, "Donnerstag");
+	}
+
+	private void generateWednesdaytab(TabLayoutPanel tabPanel) {
+		HTML moreInfo2 = new HTML("test2");
+	    tabPanel.add(moreInfo2, "Mittwoch");
+	}
+
+	private void generateTuesdaytab(TabLayoutPanel tabPanel) {
+		HTML dayDescription = new HTML("<h1>Am Dienstag morgen konnte ich dann an meinem, vom vorherigen Tag schon angefangenes Project, weiterarbeiten. Um Punkt 10 Uhr war ein CANDy Meeting, welches bi Mittags ging. Nach dem Project gab es wie jeden Tag essen in der Kantine der Telekom. Nach dem Essen hab ich dann mit Hilfe des anwesenden Fachpersonal, weiter an meinem Project gearbeitet.</h1>");
 	    
 	    HTML imagePlaceholder = new HTML("Placeholder");
 	    imagePlaceholder.addStyleName("text-placeholder");
@@ -76,8 +112,6 @@ public class HelloGwt implements EntryPoint {
 	    gitImage.setHeight("50px");
 	    gitImage.setWidth("100px");
 	    githubImageContainer.setWidget(gitImage);
-
-	    // build vertical Panel together
 	    
 	    // simplePanel holds image layer
 	    SimplePanel gwtImageContainer = new SimplePanel();
@@ -101,27 +135,12 @@ public class HelloGwt implements EntryPoint {
 	    horizontalPanelText.add(githubDescription);
 	    horizontalPanelText.add(textPlaceholder);
 	    horizontalPanelText.add(gwtDescription);
-	    
-	    //add a new tab
-	    HTML moreInfo2 = new HTML("test2");
-	    tabPanel.add(moreInfo2, "Mittwoch");
-	    
-	    //add a new tab
-	    HTML moreInfo3 = new HTML("test3");
-	    tabPanel.add(moreInfo3, "Donnerstag");
-	    
-	    //add a new tab
-	    HTML moreInfo4 = new HTML("test4");
-	    tabPanel.add(moreInfo4, "Freitag");	    
-	    
-	      
-		tabPanel.setWidth("400px");
-		tabPanel.setHeight("450px");
-	    RootPanel.get("tabPanelContainer").add(tabPanel);
+	}
 
-	    defaultSetup();
-	    
-	    
+	private void generateMondaytab(TabLayoutPanel tabPanel) {
+		HTML moreInfo0 = new HTML("<h1>Als erstes wurde ich allen vorgestellt und hab die ersten organisatorischen Informationen entgegen genommen. Also habe ich meinen Laptop bekommen zusammen mit den ersten Einweisungen. Ich habe ersteinmal den Mitarbeitern ein wenig ueber die Schulter geguckt. Im weiteren Verlauf des Nachmittags hab ich dann ein kleines Projekt in Java mit GWT und Eclipse programmiert.</h1>");
+	    moreInfo0.setStylePrimaryName("body-text");
+	    tabPanel.add(moreInfo0, "Montag");
 	}
 
 	private void defaultSetup() {
