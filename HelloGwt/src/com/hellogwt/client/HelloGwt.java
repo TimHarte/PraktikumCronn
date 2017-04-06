@@ -51,6 +51,27 @@ public class HelloGwt implements EntryPoint {
 		tabPanel = new TabLayoutPanel(5, Unit.EM);
 		tabPanel.getElement().getStyle().setMarginBottom(250, Unit.PX);
 		
+		generateLogInSearch();	
+		
+	    generateMondaytab(tabPanel);
+	    
+	    generateTuesdaytab(tabPanel);
+	    
+	    generateWednesdaytab(tabPanel);
+	    
+	    generateThursdaytab(tabPanel);
+	    
+	    generateFridaytab(tabPanel);	    
+	    	      
+		tabPanel.setWidth("400px");
+		tabPanel.setHeight("450px");
+
+		RootPanel.get("tabPanelContainer").add(tabPanel);
+		 
+		//defaultSetup();
+	}
+
+	private void generateLogInSearch() {
 		final TextBox nameField = new TextBox();
 		nameField.setText("Name");
 		
@@ -69,53 +90,42 @@ public class HelloGwt implements EntryPoint {
 		});
 		
 		RootPanel.get("loginBoxContainer").add(nameField);
-		RootPanel.get("loginBoxContainer").add(showButton);	
-		
-	    generateMondaytab(tabPanel);
-	    
-	    generateTuesdaytab(tabPanel);
-	    
-	    generateWednesdaytab(tabPanel);
-	    
-	    generateThursdaytab(tabPanel);
-	    
-	    generateFridaytab(tabPanel);	    
-	    
-	      
-		tabPanel.setWidth("400px");
-		tabPanel.setHeight("450px");
-
-	    //defaultSetup();
-		RootPanel.get("tabPanelContainer").add(tabPanel);
-	    
+		RootPanel.get("loginBoxContainer").add(showButton);
 	}
 
 	private void generateFridaytab(TabLayoutPanel tabPanel) {
-		HTML moreInfo4 = new HTML("test4");
-	    tabPanel.add(moreInfo4, "Freitag");
+		HTML dayDescribtionFriday = new HTML("test4");
+	    tabPanel.add(dayDescribtionFriday, "Freitag");
 	}
 
 	private void generateThursdaytab(TabLayoutPanel tabPanel) {
-		HTML moreInfo3 = new HTML("test3");
-	    tabPanel.add(moreInfo3, "Donnerstag");
+		HTML dayDescribtionThursday = new HTML("Am Donnerstag haben ich zum ersten mal das adere Project und auch Buero entdecken duerfen. "
+				+ "Daraus folgt auch neue Personen und neues Wissen, welches ich hoffentlich mitnehmen kann. "
+				+ "Als aller erstes wurede mir eine Einweisung ins Thema vom "
+				+ "Projektleiter geben lassen. Anschließen wurden mir die dazugehörigen Programme erklaert."
+				+ " Desweiteren habe ich Einblick in die Methoden des Testdriven bekommen."
+				+ "Wie ueblich waren wir dann Mittags in der Kantine essen und dann habeb ich anschliessend haben ich dann mit einer Fachperson"
+				+ "ein solches Testprogramm programmiert fuer das laufende Projekt.Hab noch Einblick in ein weiteres Meeting bekommen.");
+	    tabPanel.add(dayDescribtionThursday, "Donnerstag");
 	}
 
 	private void generateWednesdaytab(TabLayoutPanel tabPanel) {
-		HTML moreInfo2 = new HTML("Am Mittwoch morgen habe ich zu erst die neuen Schraenke vom Lkw in den dritten Stock getragen. "
+		HTML dayDescribtionWednesday = new HTML("Am Mittwoch morgen habe ich zu erst die neuen Schraenke vom Lkw in den dritten Stock getragen. "
 				+ "Danach habe ich mich nach einer kleinen Kaffeepause wieder an mei gwt Projekt gemacht, welches ich dann um 16 Uhr"
 				+ "fast fertig hatte. Zwischenzeitlich waren wir, wie immer, in der Katine der Telekom essen. Nachdem das GWT Projekt"
 				+ " dann fertig war hab ich mich mit einem Analyst hingesetzt, welcher mir die Aufgaben eines Analayst ein wenig naeher gebracht hat.");
-	    tabPanel.add(moreInfo2, "Mittwoch");
+		dayDescribtionWednesday.setStylePrimaryName("body-text");
+		tabPanel.add(dayDescribtionWednesday, "Mittwoch");
 	}
 
 	private void generateTuesdaytab(TabLayoutPanel tabPanel) {
-		HTML dayDescription = new HTML("Am Dienstag morgen konnte ich dann an meinem,"
+		HTML dayDescriptionTuesday = new HTML("Am Dienstag morgen konnte ich dann an meinem,"
 				+ " vom vorherigen Tag schon angefangenes Project, weiterarbeiten. "
 				+ "Um Punkt 10 Uhr war ein CANDy Meeting, welches bi Mittags ging. "
 				+ "Nach dem Project gab es wie jeden Tag essen in der Kantine der Telekom. "
 				+ "Nach dem Essen hab ich dann mit Hilfe des anwesenden Fachpersonal,"
 				+ " weiter an meinem Project gearbeitet.");
-		dayDescription.setStylePrimaryName("body-text");
+		dayDescriptionTuesday.setStylePrimaryName("body-text");
 		
 	    HTML imagePlaceholder = new HTML("Placeholder");
 	    imagePlaceholder.addStyleName("text-placeholder");
@@ -149,7 +159,7 @@ public class HelloGwt implements EntryPoint {
 	    gwtImageContainer.setWidget(gwtImage);
 	    
 	    // build vertical Panel together
-	    verticalPanel.add(dayDescription);
+	    verticalPanel.add(dayDescriptionTuesday);
 	    tabPanel.add(verticalPanel, "Dienstag");
 	    
 	    verticalPanel.add(horizontalPanelImages);
@@ -166,15 +176,13 @@ public class HelloGwt implements EntryPoint {
 	}
 
 	private void generateMondaytab(TabLayoutPanel tabPanel) {
-		VerticalPanel moreInfo0 = new VerticalPanel();
-		HTML text = new HTML("Als erstes wurde ich allen vorgestellt und hab "
+		HTML dayDescribtionMonday = new HTML("Als erstes wurde ich allen vorgestellt und hab "
 				+ "die ersten organisatorischen Informationen entgegen genommen. Also habe "
 				+ "ich meinen Laptop bekommen zusammen mit den ersten Einweisungen. Ich habe "
 				+ "ersteinmal den Mitarbeitern ein wenig ueber die Schulter geguckt. Im weiteren "
 				+ "Verlauf des Nachmittags hab ich dann ein kleines Projekt in Java mit GWT und Eclipse programmiert.");
-		moreInfo0.add(text);
-		moreInfo0.setStylePrimaryName("body-text");
-	    tabPanel.add(moreInfo0, "Montag");
+		dayDescribtionMonday.setStylePrimaryName("body-text");
+	    tabPanel.add(dayDescribtionMonday, "Montag");
 	}
 
 	private void defaultSetup() {
